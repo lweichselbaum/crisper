@@ -73,7 +73,7 @@ module.exports = function crisp(options) {
         loader += 'Add \'strict-dynamic\' and a hash of this script to your CSP.\n';
         loader += 'var s = document.createElement("script");\n';
         loader += 's.src = "' + jsFileName + '";\n';
-        loader += 'document.body.appendChild(s);\n';
+        loader += '(document.body||document.head).appendChild(s);\n';
         dom5.setTextContent(newScript, loader);
 
         // Calculate hash of loader script for CSP.
